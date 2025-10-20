@@ -1,0 +1,15 @@
+.vscode/
+checker.cpp
+fastio.cpp
+testlib.h
+pai.cpp
+*.class
+*.java
+*.exe
+*.txt
+*.out
+*.ans
+*.in
+*.o
+*.s
+*.i
