@@ -1,0 +1,86 @@
+type: default
+memory: 512MB
+filename: army
+subtasks:
+- score: 20
+  if: []
+  id: 1
+  type: min
+  cases:
+  - input: 1.in
+    output: 1.ans
+  - input: 2.in
+    output: 2.ans
+  - input: 3.in
+    output: 3.ans
+  - input: 4.in
+    output: 4.ans
+  - input: 5.in
+    output: 5.ans
+- score: 20
+  if: []
+  id: 2
+  type: min
+  cases:
+  - input: 6.in
+    output: 6.ans
+  - input: 7.in
+    output: 7.ans
+  - input: 8.in
+    output: 8.ans
+  - input: 9.in
+    output: 9.ans
+  - input: 10.in
+    output: 10.ans
+- score: 20
+  if:
+  - 1
+  id: 3
+  type: min
+  cases:
+  - input: 11.in
+    output: 11.ans
+  - input: 12.in
+    output: 12.ans
+  - input: 13.in
+    output: 13.ans
+  - input: 14.in
+    output: 14.ans
+  - input: 15.in
+    output: 15.ans
+- score: 20
+  if:
+  - 1
+  - 2
+  id: 4
+  type: min
+  cases:
+  - input: 16.in
+    output: 16.ans
+  - input: 17.in
+    output: 17.ans
+  - input: 18.in
+    output: 18.ans
+  - input: 19.in
+    output: 19.ans
+  - input: 20.in
+    output: 20.ans
+- score: 20
+  if:
+  - 1
+  - 2
+  - 3
+  - 4
+  id: 5
+  type: min
+  cases:
+  - input: 21.in
+    output: 21.ans
+  - input: 22.in
+    output: 22.ans
+  - input: 23.in
+    output: 23.ans
+  - input: 24.in
+    output: 24.ans
+  - input: 25.in
+    output: 25.ans

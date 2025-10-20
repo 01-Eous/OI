@@ -1,0 +1,142 @@
+type: default
+memory: 512MB
+filename: orchestra
+subtasks:
+- score: 10
+  if: []
+  id: 1
+  type: min
+  cases:
+  - input: 1.in
+    output: 1.ans
+  - input: 3.in
+    output: 3.ans
+  - input: 4.in
+    output: 4.ans
+  - input: 5.in
+    output: 5.ans
+  - input: 15.in
+    output: 15.ans
+  - input: 16.in
+    output: 16.ans
+  - input: 17.in
+    output: 17.ans
+  - input: 18.in
+    output: 18.ans
+  - input: 19.in
+    output: 19.ans
+  - input: 20.in
+    output: 20.ans
+  - input: 21.in
+    output: 21.ans
+- score: 30
+  if: []
+  id: 2
+  type: min
+  cases:
+  - input: 2.in
+    output: 2.ans
+  - input: 3.in
+    output: 3.ans
+  - input: 5.in
+    output: 5.ans
+  - input: 6.in
+    output: 6.ans
+  - input: 7.in
+    output: 7.ans
+  - input: 8.in
+    output: 8.ans
+  - input: 9.in
+    output: 9.ans
+  - input: 10.in
+    output: 10.ans
+  - input: 11.in
+    output: 11.ans
+  - input: 12.in
+    output: 12.ans
+  - input: 13.in
+    output: 13.ans
+  - input: 14.in
+    output: 14.ans
+  - input: 15.in
+    output: 15.ans
+  - input: 16.in
+    output: 16.ans
+- score: 30
+  if:
+  - 1
+  id: 3
+  type: min
+  cases:
+  - input: 12.in
+    output: 12.ans
+  - input: 13.in
+    output: 13.ans
+  - input: 14.in
+    output: 14.ans
+  - input: 22.in
+    output: 22.ans
+  - input: 23.in
+    output: 23.ans
+  - input: 24.in
+    output: 24.ans
+  - input: 25.in
+    output: 25.ans
+  - input: 26.in
+    output: 26.ans
+  - input: 27.in
+    output: 27.ans
+  - input: 28.in
+    output: 28.ans
+  - input: 29.in
+    output: 29.ans
+  - input: 30.in
+    output: 30.ans
+  - input: 31.in
+    output: 31.ans
+  - input: 32.in
+    output: 32.ans
+  - input: 33.in
+    output: 33.ans
+  - input: 34.in
+    output: 34.ans
+  - input: 35.in
+    output: 35.ans
+  - input: 36.in
+    output: 36.ans
+  - input: 37.in
+    output: 37.ans
+  - input: 38.in
+    output: 38.ans
+  - input: 39.in
+    output: 39.ans
+- score: 30
+  if:
+  - 1
+  - 2
+  - 3
+  id: 4
+  type: min
+  cases:
+  - input: 40.in
+    output: 40.ans
+  - input: 41.in
+    output: 41.ans
+  - input: 42.in
+    output: 42.ans
+  - input: 43.in
+    output: 43.ans
+  - input: 44.in
+    output: 44.ans
+  - input: 45.in
+    output: 45.ans
+  - input: 46.in
+    output: 46.ans
+  - input: 47.in
+    output: 47.ans
+  - input: 48.in
+    output: 48.ans
+  - input: 49.in
+    output: 49.ans
+  - input: 50.in
+    output: 50.ans
