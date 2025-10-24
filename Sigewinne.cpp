@@ -1,99 +1,60 @@
 #include <bits/stdc++.h>
-#define int long long
-#define fi first
-#define se second
 using namespace std;
-typedef pair<int, int> P;
-
-const int N = 1e5 + 5;
-int n, f, h;
-vector <P> vec;
-int ans, res[N];
-int cannot[4][N];
-vector <int> edge[N];
-
-int cur(int u)
+const int N = 105;
+int n, m, deg[N], a[N], tot = 0;
+bool vis[N][N];
+vector<int> g[N];
+queue<int> q;
+long long dp[N], ans = 0;
+int main()
 {
-	return cannot[1][u] + cannot[2][u] + cannot[3][u];
-}
-
-void dfs(int u)
-{
-	int i;
-
-	for(i = 1; i <= 3; i++)
+	ios::sync_with_stdio(0), cin.tie(0), cout.tie(0);
+	cin >> n >> m;
+	for (int i = 1, x, y; i <= m; i++)
 	{
-		if(!cannot[i][u])
+		cin >> x >> y;
+		if (x > y)
+			swap(x, y);
+		vis[x][y] = 1;
+	}
+	for (int i = 1; i <= n; i++)
+		for (int j = i + 1; j <= n; j++)
 		{
-			res[u] = i;
-			
-			for(auto v : edge[u])
-				cannot[i][v] = 1;
-			for(auto v : edge[u])
-			{
-				if(res[v]) continue;
-				if(cur(v) == 2) dfs(v);
-			}
-			for(auto v : edge[u])
-			{
-				if(res[v]) continue;
-				dfs(v);
-			}
-			
-			break;
+			if (vis[i][j])
+				g[j].push_back(i), deg[i]++;
+			else
+				g[i].push_back(j), deg[j]++;
+		}
+	for (int i = 1; i <= n; i++)
+		if (!deg[i])
+			q.push(i);
+	while (!q.empty())
+	{
+		int u = q.front();
+		q.pop();
+		a[u] = ++tot;
+		for (int i = 0; i < g[u].size(); i++)
+		{
+			int v = g[u][i];
+			deg[v]--;
+			if (!deg[v])
+				q.push(v);
 		}
 	}
-}
-
-signed main()
-{
-	ios::sync_with_stdio(false);
-	cin.tie(0), cout.tie(0);
-	//freopen("fire.in", "r", stdin);
-	freopen("fire.out", "w", stdout);
-	
-	int i, k;
-	cin >> n;
-	
-	for(i = 1; i <= n; i++)
+	for (int i = 1; i <= n; i++)
+		cout << a[i] << " \n"[i == n];
+	for (int i = 1; i <= n; i++)
 	{
-		cin >> f >> h;
-		
-		if(f)
-		{
-			for(k = (int)(vec.size()) - 1; k >= 0; k--)
-			{
-				int &p = vec[k].fi;
-				int &j = vec[k].se;
-				edge[i].push_back(j);
-				edge[j].push_back(i);
-				cout << j << ' ' << i << endl;
-				if(f > p)
-				{
-					f -= p;
-					vec.pop_back(); 
-				}
-				else
-				{
-					p -= f, f = 0;
-					if(p == 0) vec.pop_back();
-					break;
-				}
-			}
-		}
-	
-		if(h)
-			vec.push_back(make_pair(h, i));
+		for (int j = i - 1, cnt = 0; j >= 1; j--)
+			if (a[j] < a[i] && a[j] > cnt)
+				dp[i] += dp[j], cnt = a[j];
+		if (!dp[i])
+			dp[i] = 1;
 	}
-	
-	for(i = 1; i <= n; i++)
-		if(!res[i])
-			dfs(i);
-	
-	for(i = 1; i <= n; i++)
-		ans = max(ans, res[i]);
-	cout << ans << "\n";
-	for(i = 1; i <= n; i++)
-		cout << res[i] << " ";
+	int cnt = 0;
+	for (int i = n; i >= 1; i--)
+		if (a[i] > cnt)
+			cnt = a[i], ans += dp[i];
+	cout << ans;
 	return 0;
 }
